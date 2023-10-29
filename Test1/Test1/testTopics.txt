@@ -1,0 +1,24 @@
+1. SQL
+--> CRUD Operations
+--> Constraints
+--> Functions (including date)
+--> Joins
+--> GroupBY
+--> Stored Procedures
+
+
+2. DotNet
+--> Delegates
+--> Extension Methods
+--> Linq
+--> Collection (CRUD)
+--> String Operations
+--> Entity Framework (Schema Modify, CRUD, Joins)
+
+
+3. naming conventions
+a. Class name --> P
+b. Class property name --> P
+c. Function name --> P
+d. Function parameters --> C
+e. Variables name --> C

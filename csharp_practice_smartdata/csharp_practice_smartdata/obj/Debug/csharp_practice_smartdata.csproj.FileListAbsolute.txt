@@ -1,0 +1,7 @@
+C:\Users\Admin\source\repos\csharp_practice_smartdata\csharp_practice_smartdata\bin\Debug\csharp_practice_smartdata.exe.config
+C:\Users\Admin\source\repos\csharp_practice_smartdata\csharp_practice_smartdata\bin\Debug\csharp_practice_smartdata.exe
+C:\Users\Admin\source\repos\csharp_practice_smartdata\csharp_practice_smartdata\bin\Debug\csharp_practice_smartdata.pdb
+C:\Users\Admin\source\repos\csharp_practice_smartdata\csharp_practice_smartdata\obj\Debug\csharp_practice_smartdata.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\csharp_practice_smartdata\csharp_practice_smartdata\obj\Debug\csharp_practice_smartdata.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\csharp_practice_smartdata\csharp_practice_smartdata\obj\Debug\csharp_practice_smartdata.exe
+C:\Users\Admin\source\repos\csharp_practice_smartdata\csharp_practice_smartdata\obj\Debug\csharp_practice_smartdata.pdb

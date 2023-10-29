@@ -1,0 +1,14 @@
+C:\Users\Admin\source\repos\smartData\smartData\bin\Debug\net6.0\smartData.exe
+C:\Users\Admin\source\repos\smartData\smartData\bin\Debug\net6.0\smartData.deps.json
+C:\Users\Admin\source\repos\smartData\smartData\bin\Debug\net6.0\smartData.runtimeconfig.json
+C:\Users\Admin\source\repos\smartData\smartData\bin\Debug\net6.0\smartData.dll
+C:\Users\Admin\source\repos\smartData\smartData\bin\Debug\net6.0\smartData.pdb
+C:\Users\Admin\source\repos\smartData\smartData\obj\Debug\net6.0\smartData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\smartData\smartData\obj\Debug\net6.0\smartData.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\smartData\smartData\obj\Debug\net6.0\smartData.AssemblyInfo.cs
+C:\Users\Admin\source\repos\smartData\smartData\obj\Debug\net6.0\smartData.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\smartData\smartData\obj\Debug\net6.0\smartData.dll
+C:\Users\Admin\source\repos\smartData\smartData\obj\Debug\net6.0\refint\smartData.dll
+C:\Users\Admin\source\repos\smartData\smartData\obj\Debug\net6.0\smartData.pdb
+C:\Users\Admin\source\repos\smartData\smartData\obj\Debug\net6.0\smartData.genruntimeconfig.cache
+C:\Users\Admin\source\repos\smartData\smartData\obj\Debug\net6.0\ref\smartData.dll
