@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>practice</name>
+    </assembly>
+    <members>
+        <member name="M:practice.Controllers.CustomerController.AddCustomer(practice.DTOs.AddCustomerDTO)">
+            <summary>
+            Adds a customer in the database
+            </summary>
+            <param name="addCustomerDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="T:practice.Migrations.createdatabase">
+            <inheritdoc />
+        </member>
+        <member name="M:practice.Migrations.createdatabase.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:practice.Migrations.createdatabase.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:practice.Migrations.createdatabase.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

@@ -1,4 +1,6 @@
 
+using WebAPI_1.MyLogging;
+
 namespace WebAPI_1
 {
     public class Program
@@ -13,6 +15,8 @@ namespace WebAPI_1
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IMyLogger,LogToServerMemory>();
 
             var app = builder.Build();
 

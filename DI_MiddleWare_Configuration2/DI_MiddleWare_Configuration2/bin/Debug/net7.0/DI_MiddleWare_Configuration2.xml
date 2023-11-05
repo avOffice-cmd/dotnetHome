@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DI_MiddleWare_Configuration2</name>
+    </assembly>
+    <members>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.CustomerController.UpdateCustomerName(System.Int32,System.String)">
+            <summary>
+            Changes the name of the customer
+            </summary>
+            <param name="_customerID"></param>
+            <param name="_customerName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DI_MiddleWare_Configuration2.Migrations.createDatabase">
+            <inheritdoc />
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Migrations.createDatabase.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Migrations.createDatabase.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Migrations.createDatabase.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
