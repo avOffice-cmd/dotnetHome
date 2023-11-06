@@ -15,7 +15,7 @@ namespace DI_MiddleWare_Configuration2.DataAcessLayer
         Task<string> DeleteCustomer_Repo(int _customerId);
         Task<List<Customer>> GetAllCustomers();
 
-        Task<List<customerOrderViewDTO>> GetCustomerOrders(int customerId);
+        // Task<List<CustomerSpecificOrdersDTO>> GetCustomerOrders(int customerId);
 
 
 

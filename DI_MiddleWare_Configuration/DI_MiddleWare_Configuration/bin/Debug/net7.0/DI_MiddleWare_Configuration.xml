@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DI_MiddleWare_Configuration</name>
+    </assembly>
+    <members>
+        <member name="T:DI_MiddleWare_Configuration.Controllers.OrderController">
+            <summary>
+            This is order api which is being used to handle all order related operations.
+            </summary>
+        </member>
+        <member name="M:DI_MiddleWare_Configuration.Controllers.OrderController.Get">
+            <summary>
+            test summary
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DI_MiddleWare_Configuration.Controllers.OrderController.GetCustomerOrders(System.Int32)">
+            <summary>
+            This endpoint gives the orders placed by a customer
+            </summary>
+            <param name="customerId">CustomerId</param>
+            <returns></returns>
+        </member>
+        <member name="M:DI_MiddleWare_Configuration.Controllers.OrderController.UpdateDeliveryStatus(System.Int32,DI_MiddleWare_Configuration.Helper.OrderStatus)">
+            <summary>
+            This endpoint is being used to update the order status
+            </summary>
+            <param name="orderId">Order Id</param>
+            <param name="status">Status</param>
+            <returns></returns>
+        </member>
+        <member name="T:DI_MiddleWare_Configuration.Migrations.initial">
+            <inheritdoc />
+        </member>
+        <member name="M:DI_MiddleWare_Configuration.Migrations.initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DI_MiddleWare_Configuration.Migrations.initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DI_MiddleWare_Configuration.Migrations.initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

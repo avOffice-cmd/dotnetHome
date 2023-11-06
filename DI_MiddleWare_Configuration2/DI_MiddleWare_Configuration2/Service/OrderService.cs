@@ -37,7 +37,7 @@ namespace DI_MiddleWare_Configuration2.Service
                 Quantity = addOrderDTO.Quantity,
                 DeliveryCity = addOrderDTO.DeliveryCity,
                 OrderStatus = addOrderDTO.OrderStatus,
-                DeliveryDate = DateTime.Now.AddDays(5), // Add 5 days to the current date
+               // DeliveryDate = DateTime.Now.AddDays(5), // Add 5 days to the current date
                 CustomerId = (int)addOrderDTO.CustomerId
             };
 
@@ -47,11 +47,11 @@ namespace DI_MiddleWare_Configuration2.Service
 
         // Update //
 
-        public async Task<Order> UpdateOrder_Service(int _customerId, string _customerName)
+        public async Task<Order> UpdateOrder_Service(int _orderId, string _orderStatus)
         {
-            var getUpdatedCustomer = await orderRepository.UpdateOrder_Repo(_customerId, _customerName);
-            if (getUpdatedCustomer == null) return null;
-            return getUpdatedCustomer;
+            var getUpdatedOrder = await orderRepository.UpdateOrder_Repo(_orderId, _orderStatus);
+            if (getUpdatedOrder == null) return null;
+            return getUpdatedOrder;
         }
 
 

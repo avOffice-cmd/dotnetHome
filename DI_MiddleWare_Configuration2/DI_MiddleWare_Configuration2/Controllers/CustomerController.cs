@@ -26,6 +26,10 @@ namespace DI_MiddleWare_Configuration2.Controllers
 
 
         // get customer using joins //
+        /// <summary>
+        /// It is used to get the customers and orders details
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("getCustomerAndOrders")]
         [ProducesResponseType(200, Type = typeof(CustomerOrderjoinDTO))]
@@ -36,6 +40,11 @@ namespace DI_MiddleWare_Configuration2.Controllers
         }
 
         // ADD //
+        /// <summary>
+        /// It is used to add the customers
+        /// </summary>
+        /// <param name="addCustomerDTO"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("add")]
         public async Task<ActionResult> AddCustomer([FromBody] CustomerDTO addCustomerDTO)
@@ -47,6 +56,8 @@ namespace DI_MiddleWare_Configuration2.Controllers
                 {
                     return BadRequest("Customer not found");
                 }
+
+              
                 await customerService.AddCustomer_Service(addCustomerDTO);
                 return Ok("Customer has been added");
             }
@@ -61,7 +72,7 @@ namespace DI_MiddleWare_Configuration2.Controllers
         // Update
 
         /// <summary>
-        /// Changes the name of the customer
+        /// It is used to Changes the name of the customer
         /// </summary>
         /// <param name="_customerID"></param>
         /// <param name="_customerName"></param>
@@ -91,6 +102,11 @@ namespace DI_MiddleWare_Configuration2.Controllers
 
          
         // Delete
+        /// <summary>
+        /// It is used to delete the orders
+        /// </summary>
+        /// <param name="_customerID"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("delete")]
         [ProducesResponseType(200, Type = typeof(string))]
@@ -123,6 +139,10 @@ namespace DI_MiddleWare_Configuration2.Controllers
 
 
         // GET customer //
+        /// <summary>
+        /// It is used to get the all customers
+        /// </summary>
+        /// <returns></returns>
 
         [HttpGet]
         [Route("getCustomer")]
@@ -151,23 +171,24 @@ namespace DI_MiddleWare_Configuration2.Controllers
 
 
         // get customerORorders details using customerId //
+        /// <summary>
+        /// Used to get customer specific orders
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
 
         [HttpGet("ByCustomerId/{customerId}")]
-        public async Task<IActionResult> GetCustomerOrders(int customerId)
+        public async Task<IActionResult> GetCustomerSpecificOrders(int customerId)
         {
-            try
-            {
-                if (customerId <= 0)
-                    return BadRequest("customer Id is incorrect");
-                var customerOrders = await customerRepository.GetCustomerOrders(customerId);
-                if (!customerOrders.Any())
-                    return NotFound("No customer or orders found for this customerid");
-                return Ok(customerOrders);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode((int)HttpStatusCode.InternalServerError, $"Something Went Wrong. Exception: {ex.Message}");
-            }
+
+            if (customerId <= 0) return BadRequest("customer Id is incorrect");
+            var customerOrders = await customerService
+                                    .GetCustomerSpecificOrders_Service(customerId);
+            return Ok(customerOrders);
+            //if (!customerOrders.Any())
+            //    return NotFound("No customer or orders found for this customerid");
+            // return Ok(customerOrders);
+
         }
 
 

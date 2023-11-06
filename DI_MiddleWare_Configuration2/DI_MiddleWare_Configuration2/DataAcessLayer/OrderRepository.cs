@@ -22,15 +22,19 @@ namespace DI_MiddleWare_Configuration2.DataAcessLayer
 
 
         // update //
-        public async Task<Order> UpdateOrder_Repo(int customerId, string _orderStatus)
+        public async Task<Order> UpdateOrder_Repo(int orderId, string _orderStatus)
         {
-            var getorder = await context.Orders.FindAsync(customerId);
+            var getorder = await context.Orders.FindAsync(orderId);
 
             if (getorder == null) return null;
 
             if (getorder != null)
             {
                 getorder.OrderStatus = _orderStatus;
+                if(_orderStatus == "Delivered")
+                {
+                    getorder.DeliveryDate = DateTime.Now;
+                }
                 context.SaveChanges();
             }
 

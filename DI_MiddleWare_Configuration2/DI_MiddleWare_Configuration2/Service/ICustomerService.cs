@@ -15,5 +15,7 @@ namespace DI_MiddleWare_Configuration2.Service
         Task<List<CustomerOrderjoinDTO>> GetCustomerOrder();
 
         Task<CustomerResult> GetAllCustomer();
+
+        Task<CustomerSpecificOrdersDTO> GetCustomerSpecificOrders_Service(int _customerId);
     }
 }

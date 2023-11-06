@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <DocumentationFile>C:\Users\Admin\source\repos\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\DI_MiddleWare_Configuration2.xml</DocumentationFile>
+    <DocumentationFile>D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\DI_MiddleWare_Configuration2.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

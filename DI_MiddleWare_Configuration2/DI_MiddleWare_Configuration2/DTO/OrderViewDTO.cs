@@ -6,8 +6,5 @@
         public int Quantity { get; set; }
         public float Total_Amt { get; set; }
         public string DeliveryCity { get; set; }
-        public string OrderStatus { get; set; }
-        public DateTime OrderDate { get; set; }
-        public DateTime? DeliveryDate { get; set; }
     }
 }

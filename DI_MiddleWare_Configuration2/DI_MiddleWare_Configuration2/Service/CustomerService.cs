@@ -121,6 +121,70 @@ namespace DI_MiddleWare_Configuration2.Service
         //  get customerANDordersById //
         //===========================//
 
-       
+        //public async Task<List<Order>> GetCustomerSpecificOrders_Service(int _customerId)
+        //{
+        //    var gotAllOrders = await orderRepository.GetAllOrders();
+
+        //    var customerSpecificOrders = 
+        //        gotAllOrders.Where(o => o.CustomerId == _customerId)
+        //                    .ToList();
+
+        //    return customerSpecificOrders;
+
+        //}
+
+        public async Task<CustomerSpecificOrdersDTO> GetCustomerSpecificOrders_Service(int _customerId)
+        {
+
+            // get customer
+            var gotCustomer = await customerRepository.GetCustomerByID(_customerId);
+
+            // getting all orders list
+            var gotAllOrders = await orderRepository.GetAllOrders();
+            var customerSpecificOrders =
+                gotAllOrders.Where(o => o.CustomerId == _customerId)
+                            .ToList();
+
+
+            // convert order list to orderviewdto list
+            //var orderViewDTOList = new List<OrderViewDTO>();
+
+            //foreach (var order in customerSpecificOrders)
+            //{
+            //    OrderViewDTO newOrderViewDTO = new OrderViewDTO()
+            //    {
+            //        InvoiceId = order.InvoiceId,
+            //        Total_Amt = order.Total_Amt,
+            //        Quantity = order.Quantity,
+            //        DeliveryCity = order.DeliveryCity
+            //    };
+
+            //    orderViewDTOList.Add(newOrderViewDTO);
+
+            //}
+
+
+            var orderViewDTOList =
+            customerSpecificOrders.Select(cso => new OrderViewDTO() {
+                InvoiceId = cso.InvoiceId,
+                Total_Amt = cso.Total_Amt,
+                Quantity = cso.Quantity,
+                DeliveryCity = cso.DeliveryCity
+
+            }).ToList();
+
+
+            CustomerSpecificOrdersDTO cs = new CustomerSpecificOrdersDTO()
+            {
+              customerName = gotCustomer.Name,
+              customer_Orders = orderViewDTOList
+            };
+
+
+            return cs;
+
+        }
+
+
     }
 }

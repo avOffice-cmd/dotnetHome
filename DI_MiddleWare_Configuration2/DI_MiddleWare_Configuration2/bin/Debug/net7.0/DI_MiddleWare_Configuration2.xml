@@ -4,24 +4,100 @@
         <name>DI_MiddleWare_Configuration2</name>
     </assembly>
     <members>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.CustomerController.GetCustomerAndOrders">
+            <summary>
+            It is used to get the customers and orders details
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.CustomerController.AddCustomer(DI_MiddleWare_Configuration2.DTO.CustomerDTO)">
+            <summary>
+            It is used to add the customers
+            </summary>
+            <param name="addCustomerDTO"></param>
+            <returns></returns>
+        </member>
         <member name="M:DI_MiddleWare_Configuration2.Controllers.CustomerController.UpdateCustomerName(System.Int32,System.String)">
             <summary>
-            Changes the name of the customer
+            It is used to Changes the name of the customer
             </summary>
             <param name="_customerID"></param>
             <param name="_customerName"></param>
             <returns></returns>
         </member>
-        <member name="T:DI_MiddleWare_Configuration2.Migrations.createDatabase">
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.CustomerController.DeleteCustomer(System.Int32)">
+            <summary>
+            It is used to delete the orders
+            </summary>
+            <param name="_customerID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.CustomerController.GetCustomer">
+            <summary>
+            It is used to get the all customers
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.CustomerController.GetCustomerSpecificOrders(System.Int32)">
+            <summary>
+            Used to get customer specific orders
+            </summary>
+            <param name="customerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.OrderController.AddOrder(DI_MiddleWare_Configuration2.DTO.OrderDTO)">
+            <summary>
+            It is used to add the orders
+            </summary>
+            <param name="addOrderDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.OrderController.UpdateOrderStatus(System.Int32,DI_MiddleWare_Configuration2.Helper.OrderStatus)">
+            <summary>
+            It is   used to update the order status
+            </summary>
+            <param name="orderId">Order Id</param>
+            <param name="status">Status</param>
+            <returns></returns>
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.OrderController.DeleteOrder(System.Int32)">
+             <summary>
+            It is used to delete the order
+             </summary>
+             <param name="_orderID"></param>
+             <returns></returns>
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.OrderController.GetAllOrders">
+            <summary>
+            It is used to get all orders
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:DI_MiddleWare_Configuration2.Helper.OrderStatus.Initiated">
+            <summary>
+            Initiated
+            </summary>
+        </member>
+        <member name="F:DI_MiddleWare_Configuration2.Helper.OrderStatus.OutForDelivery">
+            <summary>
+            OutForDelivery
+            </summary>
+        </member>
+        <member name="F:DI_MiddleWare_Configuration2.Helper.OrderStatus.Delivered">
+            <summary>
+            Delivered
+            </summary>
+        </member>
+        <member name="T:DI_MiddleWare_Configuration2.Migrations.createDtatabase">
             <inheritdoc />
         </member>
-        <member name="M:DI_MiddleWare_Configuration2.Migrations.createDatabase.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:DI_MiddleWare_Configuration2.Migrations.createDtatabase.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:DI_MiddleWare_Configuration2.Migrations.createDatabase.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:DI_MiddleWare_Configuration2.Migrations.createDtatabase.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:DI_MiddleWare_Configuration2.Migrations.createDatabase.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:DI_MiddleWare_Configuration2.Migrations.createDtatabase.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

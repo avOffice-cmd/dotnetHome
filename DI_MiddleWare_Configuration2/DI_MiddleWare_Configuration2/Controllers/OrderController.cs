@@ -5,6 +5,8 @@ using DI_MiddleWare_Configuration2.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Extensions;
+using System.Net;
 
 namespace DI_MiddleWare_Configuration2.Controllers
 {
@@ -23,6 +25,11 @@ namespace DI_MiddleWare_Configuration2.Controllers
         }
 
         // ADD //
+        /// <summary>
+        /// It is used to add the orders
+        /// </summary>
+        /// <param name="addOrderDTO"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("add")]
         public async Task<ActionResult> AddOrder([FromBody] OrderDTO addOrderDTO)
@@ -32,23 +39,42 @@ namespace DI_MiddleWare_Configuration2.Controllers
         }
 
 
-        // Update
-
+        /// <summary>
+        /// It is   used to update the order status
+        /// </summary>
+        /// <param name="orderId">Order Id</param>
+        /// <param name="status">Status</param>
+        /// <returns></returns>
         [HttpPatch]
-        [Route("updateName")]
+        [Route("updateOrderStatus")]
         [ProducesResponseType(200, Type = typeof(Order))]
-        public async Task<ActionResult> UpdateOrderStatus(int _orderID, string _orderStatus)
+        public async Task<ActionResult> UpdateOrderStatus(int _orderID, OrderStatus _orderStatus)
         {
+            try
+            {
+                if (_orderID <= 0)
+                    return BadRequest("Order id is incorrect");
 
-            Order gotResponse = await orderService.UpdateOrder_Service(_orderID, _orderStatus);
-            if (gotResponse == null) return NotFound("Customer not found!");
-            return Ok(gotResponse);
+                var statusToString = _orderStatus.GetDisplayName().ToString();
+                Order gotResponse = await orderService.UpdateOrder_Service(_orderID, statusToString);
+                if (gotResponse == null) return NotFound("Customer not found!");
+                return Ok(gotResponse);
+            }
+            catch (Exception ex) {
+                return StatusCode((int)HttpStatusCode.InternalServerError, $"Something Went Wrong. Exception: {ex.Message}");
+            }
+           
 
             //return StatusCode(200, gotResponse);
         }
 
 
         // Delete
+        /// <summary>
+        ///It is used to delete the order
+        /// </summary>
+        /// <param name="_orderID"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("delete")]
         [ProducesResponseType(200, Type = typeof(string))]
@@ -65,10 +91,13 @@ namespace DI_MiddleWare_Configuration2.Controllers
         }
 
 
-        // GET customer //
-
+        // GET Orders //
+        /// <summary>
+        /// It is used to get all orders
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        [Route("getCustomer")]
+        [Route("getOrders")]
         [ProducesResponseType(200, Type = typeof(List<Order>))]
         [ProducesResponseType(404)]
         public async Task<ActionResult> GetAllOrders()
@@ -91,5 +120,11 @@ namespace DI_MiddleWare_Configuration2.Controllers
                 return StatusCode(500, $"An error occurred: {ex.Message}");
             }
         }
+
+
+
+     
+       
+
     }
 }

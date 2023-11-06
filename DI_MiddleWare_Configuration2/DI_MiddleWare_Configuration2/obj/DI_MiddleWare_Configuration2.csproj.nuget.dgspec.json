@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2.csproj": {}
+    "D:\\DayUsers\\AanchalVerma\\Personal\\DotnetPractice\\Home\\DotNEtProjects\\dotnetHome\\dotnetHome\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2.csproj": {
+    "D:\\DayUsers\\AanchalVerma\\Personal\\DotnetPractice\\Home\\DotNEtProjects\\dotnetHome\\dotnetHome\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2.csproj",
+        "projectUniqueName": "D:\\DayUsers\\AanchalVerma\\Personal\\DotnetPractice\\Home\\DotNEtProjects\\dotnetHome\\dotnetHome\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2.csproj",
         "projectName": "DI_MiddleWare_Configuration2",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2\\obj\\",
+        "projectPath": "D:\\DayUsers\\AanchalVerma\\Personal\\DotnetPractice\\Home\\DotNEtProjects\\dotnetHome\\dotnetHome\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2.csproj",
+        "packagesPath": "C:\\Users\\anchalvarma\\.nuget\\packages\\",
+        "outputPath": "D:\\DayUsers\\AanchalVerma\\Personal\\DotnetPractice\\Home\\DotNEtProjects\\dotnetHome\\dotnetHome\\DI_MiddleWare_Configuration2\\DI_MiddleWare_Configuration2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\anchalvarma\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

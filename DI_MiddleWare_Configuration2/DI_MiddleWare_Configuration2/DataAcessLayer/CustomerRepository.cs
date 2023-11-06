@@ -70,28 +70,33 @@ namespace DI_MiddleWare_Configuration2.DataAcessLayer
         }
 
 
-        // GetCustomerOrdersBYID //
-        public async Task<List<customerOrderViewDTO>> GetCustomerOrders(int customerId)
-        {
-            var customerInfo = context.Customers.Where(c => c.Id == customerId)
-                .Include(c => c.Orders)
-                .Select(c =>
-            new customerOrderViewDTO
-            {
-                customerName = c.Name,
+        // getcustomerOrderById
 
-                customer_Orders = c.Orders.Select(ord => new OrderViewDTO
-                {
-                    InvoiceId = ord.InvoiceId,
-                    DeliveryCity = ord.DeliveryCity,
-                    OrderDate = ord.OrderDate,
-                    DeliveryDate = ord.DeliveryDate,
-                    Quantity = ord.Quantity,
-                    OrderStatus = ord.OrderStatus,
-                    Total_Amt = ord.Total_Amt
-                }).ToList()
-            }).ToList();
-            return customerInfo;
-        }
+        // GetCustomerOrdersBYID //
+
+        //public async Task<List<customerSpecifcOrdersDTO>> GetCustomerOrders(int customerId)
+        //{
+        //    var customerInfo = context.Customers.Where(c => c.Id == customerId)
+        //        .Include(c => c.Orders)
+        //        .Select(c =>
+        //    new customerSpecifcOrdersDTO
+        //    {
+        //        customerName = c.Name,
+
+        //        customer_Orders = c.Orders.Select(ord => new OrderViewDTO
+        //        {
+        //            InvoiceId = ord.InvoiceId,
+        //            DeliveryCity = ord.DeliveryCity,
+        //            OrderDate = ord.OrderDate,
+        //            DeliveryDate = ord.DeliveryDate,
+        //            Quantity = ord.Quantity,
+        //            OrderStatus = ord.OrderStatus,
+        //            Total_Amt = ord.Total_Amt
+        //        }).ToList()
+        //    }).ToList();
+        //    return customerInfo;
+        //}
+
+
     }
 }
