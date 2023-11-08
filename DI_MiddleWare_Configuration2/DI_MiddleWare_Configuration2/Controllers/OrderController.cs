@@ -24,7 +24,8 @@ namespace DI_MiddleWare_Configuration2.Controllers
             messages = _messages.Value;
         }
 
-        // ADD //
+        // ADD ORDERS
+
         /// <summary>
         /// It is used to add the orders
         /// </summary>
@@ -38,6 +39,7 @@ namespace DI_MiddleWare_Configuration2.Controllers
             return Ok("Order has been added");
         }
 
+        // UPDATE ORDERS
 
         /// <summary>
         /// It is   used to update the order status
@@ -69,7 +71,8 @@ namespace DI_MiddleWare_Configuration2.Controllers
         }
 
 
-        // Delete
+        // DELETE ORDERS
+
         /// <summary>
         ///It is used to delete the order
         /// </summary>
@@ -91,7 +94,8 @@ namespace DI_MiddleWare_Configuration2.Controllers
         }
 
 
-        // GET Orders //
+        // GET ALL ORDERS
+
         /// <summary>
         /// It is used to get all orders
         /// </summary>

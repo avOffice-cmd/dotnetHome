@@ -17,5 +17,8 @@ namespace DI_MiddleWare_Configuration2.Service
         Task<CustomerResult> GetAllCustomer();
 
         Task<CustomerSpecificOrdersDTO> GetCustomerSpecificOrders_Service(int _customerId);
+
+       
+        Task<string> DeleteCustomerSpecificOrders_Service(int _customerId);
     }
 }

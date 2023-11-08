@@ -138,6 +138,39 @@ namespace DI_MiddleWare_Configuration2.Controllers
         }
 
 
+
+        // Delete
+        /// <summary>
+        /// It is used to delete the customers and their orders
+        /// </summary>
+        /// <param name="_customerID"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        [Route("deleted")]
+        [ProducesResponseType(200, Type = typeof(string))]
+        public async Task<ActionResult> DeleteCustomerWithOrders(int _customerID)
+        {
+
+            if (_customerID <= 0) return BadRequest("customer Id is incorrect");
+            var result = await customerService.DeleteCustomerSpecificOrders_Service(_customerID);
+
+
+            if (result == null)
+            {
+                // Customer not found, return a 404 Not Found response or handle the error appropriately.
+                return NotFound("Customer not found");
+            }
+
+            // You can return a success message if needed
+            return Ok("Customer and their orders deleted successfully");
+        }
+
+
+   
+
+
+
+
         // GET customer //
         /// <summary>
         /// It is used to get the all customers

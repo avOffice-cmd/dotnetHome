@@ -21,7 +21,8 @@ namespace DI_MiddleWare_Configuration2.DataAcessLayer
         }
 
 
-        // update //
+        // UPDATE ORDERS
+
         public async Task<Order> UpdateOrder_Repo(int orderId, string _orderStatus)
         {
             var getorder = await context.Orders.FindAsync(orderId);
@@ -42,7 +43,7 @@ namespace DI_MiddleWare_Configuration2.DataAcessLayer
         }
 
 
-        // delete
+        // DELETE ORDERS
 
         public async Task<Order> GetOrderByID(int _orderID)
         {
@@ -65,7 +66,9 @@ namespace DI_MiddleWare_Configuration2.DataAcessLayer
         }
 
 
-        // get
+
+
+        // GET ALL ORDERS
         public async Task<List<Order>> GetAllOrders()
         {
             var orderTable = await context.Orders.ToListAsync();

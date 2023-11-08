@@ -20,9 +20,11 @@ namespace DI_MiddleWare_Configuration2.Service
         }
 
 
+        // get all customers //
+
         #region  GetAllCustomers
 
-        // get all customers //
+
 
         public class CustomerResult
         {
@@ -87,6 +89,8 @@ namespace DI_MiddleWare_Configuration2.Service
             return gotMessage;
         }
 
+
+
         //===========================//
         //  get customerANDorders   //
         //===========================//
@@ -116,6 +120,8 @@ namespace DI_MiddleWare_Configuration2.Service
 
         }
 
+      
+        // GET CUSTOMER AND THEIR SPECIFIC ORDERS
 
         //===========================//
         //  get customerANDordersById //
@@ -145,7 +151,7 @@ namespace DI_MiddleWare_Configuration2.Service
                 gotAllOrders.Where(o => o.CustomerId == _customerId)
                             .ToList();
 
-
+            #region
             // convert order list to orderviewdto list
             //var orderViewDTOList = new List<OrderViewDTO>();
 
@@ -162,7 +168,7 @@ namespace DI_MiddleWare_Configuration2.Service
             //    orderViewDTOList.Add(newOrderViewDTO);
 
             //}
-
+            #endregion
 
             var orderViewDTOList =
             customerSpecificOrders.Select(cso => new OrderViewDTO() {
@@ -186,5 +192,40 @@ namespace DI_MiddleWare_Configuration2.Service
         }
 
 
+        // DELETE CUSTOMERS AND THEIR SPECIFIC ORDERS
+        public async Task<string> DeleteCustomerSpecificOrders_Service(int _customerId)
+        {
+            // Step 1: Check if customer exists with the given ID
+            var gotCustomer = await customerRepository.GetCustomerByID(_customerId);
+
+            if (gotCustomer == null)
+            {
+                // Customer not found, handle the error or return an appropriate response
+                return "Customer does not exist"; // or throw an exception
+            }
+
+            // Step 2: Get all orders for the customer
+            var gotAllOrders = await orderRepository.GetAllOrders();
+
+            // Step 3: Filter orders for the specific customer
+            var customerSpecificOrders = gotAllOrders
+                    .Where(o => o.CustomerId == _customerId).ToList();
+
+            // Step 4: Delete the customer-specific orders
+            foreach (var order in customerSpecificOrders)
+            {
+                 await orderRepository.DeleteOrder_Repo(order.Id);
+                // Replace 'DeleteOrder' with the actual method you have in your repository to delete an order.
+            }
+
+            return "Orders deleted successfully";
+        }
+    
+
+
     }
 }
+
+
+
+

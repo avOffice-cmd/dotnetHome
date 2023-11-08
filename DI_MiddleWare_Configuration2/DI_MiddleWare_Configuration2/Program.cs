@@ -2,6 +2,7 @@
 using DI_MiddleWare_Configuration2.Context;
 using DI_MiddleWare_Configuration2.DataAcessLayer;
 using DI_MiddleWare_Configuration2.Helper;
+using DI_MiddleWare_Configuration2.MiddleWare;
 using DI_MiddleWare_Configuration2.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -18,6 +19,12 @@ namespace DI_MiddleWare_Configuration2
             // Add services to the container.
 
             builder.Services.AddControllers();
+
+
+            //==========//  as a service i registered my middleWare   //==========//
+
+            builder.Services.AddTransient<AuthMiddleware>();
+
 
             // DB context config
             builder.Services.AddDbContext<MyDbContext>(options =>
@@ -51,6 +58,10 @@ namespace DI_MiddleWare_Configuration2
                 c.CustomSchemaIds(x => x.FullName);
             });
 
+
+
+            builder.Services.AddTransient<CustomMiddleWare>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -60,12 +71,53 @@ namespace DI_MiddleWare_Configuration2
                 app.UseSwaggerUI();
             }
 
+
+
+            app.UseMiddleware<AuthMiddleware>();
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
 
             app.MapControllers();
+
+
+
+
+            //app.UseMiddleware<CustomMiddleWare>();
+            //app.Map("/m2", appMap =>
+            //{
+            //    appMap.Run(async context =>
+            //    {
+            //        await context.Response.WriteAsync("Hello from 2nd app.Map()");
+            //    });
+            //});
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Before Invoke from 1st app.Use()\n");
+            //    await next();
+            //    await context.Response.WriteAsync("After Invoke from 1st app.Use()\n");
+            //});
+
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Before Invoke from 2nd app.Use()\n");
+            //    await next();
+            //    await context.Response.WriteAsync("After Invoke from 2nd app.Use()\n");
+            //});
+
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello from 1st app.Run()\n");
+            //});
+
+            //// the following will never be executed    
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello from 2nd app.Run()\n");
+            //});
+
 
             app.Run();
         }

@@ -32,6 +32,13 @@
             <param name="_customerID"></param>
             <returns></returns>
         </member>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.CustomerController.DeleteCustomerWithOrders(System.Int32)">
+            <summary>
+            It is used to delete the customers and their orders
+            </summary>
+            <param name="_customerID"></param>
+            <returns></returns>
+        </member>
         <member name="M:DI_MiddleWare_Configuration2.Controllers.CustomerController.GetCustomer">
             <summary>
             It is used to get the all customers
