@@ -152,3 +152,16 @@ D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\
 D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\obj\Debug\net7.0\DI_MiddleWare_Configuration2.csproj.CopyComplete
 D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\obj\Debug\net7.0\DI_MiddleWare_Configuration2.genruntimeconfig.cache
 D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\obj\Debug\net7.0\ref\DI_MiddleWare_Configuration2.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\Serilog.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\Serilog.AspNetCore.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\Serilog.Extensions.Hosting.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\Serilog.Extensions.Logging.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\Serilog.Formatting.Compact.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\Serilog.Settings.Configuration.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\Serilog.Sinks.Console.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\Serilog.Sinks.Debug.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\Serilog.Sinks.File.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\log4net.config
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\log4net.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\DayUsers\AanchalVerma\Personal\DotnetPractice\Home\DotNEtProjects\dotnetHome\dotnetHome\DI_MiddleWare_Configuration2\DI_MiddleWare_Configuration2\bin\Debug\net7.0\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll

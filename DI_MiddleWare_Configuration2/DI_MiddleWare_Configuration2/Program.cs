@@ -6,6 +6,7 @@ using DI_MiddleWare_Configuration2.MiddleWare;
 using DI_MiddleWare_Configuration2.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using System.Reflection;
 
 namespace DI_MiddleWare_Configuration2
@@ -15,21 +16,47 @@ namespace DI_MiddleWare_Configuration2
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            //builder.Logging.ClearProviders(); // using this all 4 providers got clear this application
+            //builder.Logging.AddConsole();
+            //builder.Logging.AddDebug();
+
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Information()
+                  //.WriteTo.Console()
+                  .WriteTo.File("Log/log.txt", rollingInterval : RollingInterval.Minute)
+                  .CreateLogger();
+
+            //// use this line to ovveride built-in loggers
+            //builder.Host.UseSerilog();
+            //// if u want to use both buil in and serilog parallely
+            //builder.Logging.AddSerilog();
+
+            builder.Logging.ClearProviders(); // clear all inbuilt p[rovider
+            builder.Logging.AddLog4Net();
+
+
+
+
 
             // Add services to the container.
 
             builder.Services.AddControllers();
 
 
+
+
+
             //==========//  as a service i registered my middleWare   //==========//
 
-            builder.Services.AddTransient<AuthMiddleware>();
+            //builder.Services.AddTransient<AuthMiddleware>();
 
 
             // DB context config
             builder.Services.AddDbContext<MyDbContext>(options =>
             options.
             UseSqlServer(builder.Configuration.GetConnectionString("connStr")));
+
+
 
 
 
@@ -41,11 +68,16 @@ namespace DI_MiddleWare_Configuration2
             builder.Services.AddScoped<IOrderService, OrderService>();
             builder.Services.AddScoped<IorderRepository, OrderRepository>();
 
-            // IOptions
+
+
+
+
             // IOptions
             builder.Services.Configure<Messages>
                 (builder.Configuration.GetSection("a:b:c:d"));
             
+
+
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -60,7 +92,7 @@ namespace DI_MiddleWare_Configuration2
 
 
 
-            builder.Services.AddTransient<CustomMiddleWare>();
+            //builder.Services.AddTransient<CustomMiddleWare>();
 
             var app = builder.Build();
 
@@ -73,7 +105,7 @@ namespace DI_MiddleWare_Configuration2
 
 
 
-            app.UseMiddleware<AuthMiddleware>();
+            //app.UseMiddleware<AuthMiddleware>();
 
             app.UseHttpsRedirection();
 
@@ -81,43 +113,6 @@ namespace DI_MiddleWare_Configuration2
 
 
             app.MapControllers();
-
-
-
-
-            //app.UseMiddleware<CustomMiddleWare>();
-            //app.Map("/m2", appMap =>
-            //{
-            //    appMap.Run(async context =>
-            //    {
-            //        await context.Response.WriteAsync("Hello from 2nd app.Map()");
-            //    });
-            //});
-            //app.Use(async (context, next) =>
-            //{
-            //    await context.Response.WriteAsync("Before Invoke from 1st app.Use()\n");
-            //    await next();
-            //    await context.Response.WriteAsync("After Invoke from 1st app.Use()\n");
-            //});
-
-            //app.Use(async (context, next) =>
-            //{
-            //    await context.Response.WriteAsync("Before Invoke from 2nd app.Use()\n");
-            //    await next();
-            //    await context.Response.WriteAsync("After Invoke from 2nd app.Use()\n");
-            //});
-
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello from 1st app.Run()\n");
-            //});
-
-            //// the following will never be executed    
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello from 2nd app.Run()\n");
-            //});
-
 
             app.Run();
         }

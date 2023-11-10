@@ -4,6 +4,7 @@ using DI_MiddleWare_Configuration2.Models;
 using DI_MiddleWare_Configuration2.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Net;
 
 namespace DI_MiddleWare_Configuration2.Controllers
@@ -13,15 +14,16 @@ namespace DI_MiddleWare_Configuration2.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService customerService;
-        private readonly IcustomerRepository customerRepository;
+        private readonly ILogger<CustomerController> logger;
+       
         public IConfiguration configuration { get; }
         public CustomerController(ICustomerService _customerService,
-                                    IcustomerRepository _customerRepository,
-                                    IConfiguration _configuration)
+                                    IConfiguration _configuration,
+                                    ILogger<CustomerController> logger)
         {
             customerService = _customerService;
-            customerRepository = _customerRepository;
             configuration = _configuration;
+            this.logger = logger;
         }
 
 
@@ -122,10 +124,11 @@ namespace DI_MiddleWare_Configuration2.Controllers
                 }
                 string gotResponse = await customerService.DeleteCustomer_Service(_customerID);
 
-                if (string.IsNullOrEmpty(gotResponse))
-                {
-                    return NotFound("Customer not found!");
-                }
+                //if (string.IsNullOrEmpty(gotResponse))
+                //{
+                //    return NotFound("Customer not found!");
+                //}
+
                 return Ok(gotResponse);
                 //return StatusCode(200, gotResponse);
             }
@@ -151,12 +154,19 @@ namespace DI_MiddleWare_Configuration2.Controllers
         public async Task<ActionResult> DeleteCustomerWithOrders(int _customerID)
         {
 
-            if (_customerID <= 0) return BadRequest("customer Id is incorrect");
+            if (_customerID <= 0)
+            {
+                logger.LogWarning("Bad request");
+                return BadRequest("customer Id is incorrect");
+            }
+               
             var result = await customerService.DeleteCustomerSpecificOrders_Service(_customerID);
 
 
             if (result == null)
             {
+
+                logger.LogError("custo,er not found with the given Id");
                 // Customer not found, return a 404 Not Found response or handle the error appropriately.
                 return NotFound("Customer not found");
             }
@@ -183,6 +193,8 @@ namespace DI_MiddleWare_Configuration2.Controllers
         [ProducesResponseType(404)]
         public async Task<ActionResult> GetCustomer()
         {
+
+            logger.LogInformation("get method started");
             try
             {
                 var getCustomers = await customerService.GetAllCustomer();
@@ -214,7 +226,11 @@ namespace DI_MiddleWare_Configuration2.Controllers
         public async Task<IActionResult> GetCustomerSpecificOrders(int customerId)
         {
 
-            if (customerId <= 0) return BadRequest("customer Id is incorrect");
+            if (customerId <= 0)
+            {
+                logger.LogWarning("Bad request");
+                return BadRequest("customer Id is incorrect");
+            }
             var customerOrders = await customerService
                                     .GetCustomerSpecificOrders_Service(customerId);
             return Ok(customerOrders);
@@ -236,6 +252,26 @@ namespace DI_MiddleWare_Configuration2.Controllers
             // nested keys
             //return Ok(configuration["Messages:ExceptionMessage"]);
             return Ok(configuration["a:b:c:d:ErrorMesssage"]);
+        }
+
+
+
+        // LOGGER //
+        [HttpGet]
+        [Route("logger")]
+        public ActionResult Index()
+        {
+
+            // all are log level messages
+            logger.LogTrace("Log msg from trace");
+            logger.LogInformation("log msg from loginformation");
+            logger.LogDebug("log msg from log debug");
+            logger.LogWarning("log msg from logwarning");
+            logger.LogError("log msg from logError");
+            logger.LogCritical("log msg from logcritical");
+
+
+            return Ok();
         }
     }
 }

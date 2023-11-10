@@ -86,6 +86,7 @@ namespace DI_MiddleWare_Configuration2.Service
             var getOrder = await orderRepository.GetAllOrders();
 
             if (getOrder.Any() == false)
+            //if (getOrder.Count == 0)
             {
                 orderResult.Orders = new List<Order>();
                 orderResult.Message = "No order found.";

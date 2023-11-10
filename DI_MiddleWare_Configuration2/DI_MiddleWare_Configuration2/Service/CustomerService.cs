@@ -16,7 +16,7 @@ namespace DI_MiddleWare_Configuration2.Service
         {
             customerRepository = _customerRepository;
             orderRepository = _orderRepository;
-           
+
         }
 
 
@@ -61,9 +61,9 @@ namespace DI_MiddleWare_Configuration2.Service
         {
             Customer customer = new Customer
             {
-               Name = addCustomerDTO.Name,
-               Email = addCustomerDTO.Email,    
-               PhoneNumber = addCustomerDTO.PhoneNumber
+                Name = addCustomerDTO.Name,
+                Email = addCustomerDTO.Email,
+                PhoneNumber = addCustomerDTO.PhoneNumber
             };
 
             await customerRepository.AddCustomer_Repo(customer);
@@ -120,7 +120,7 @@ namespace DI_MiddleWare_Configuration2.Service
 
         }
 
-      
+
         // GET CUSTOMER AND THEIR SPECIFIC ORDERS
 
         //===========================//
@@ -171,7 +171,8 @@ namespace DI_MiddleWare_Configuration2.Service
             #endregion
 
             var orderViewDTOList =
-            customerSpecificOrders.Select(cso => new OrderViewDTO() {
+            customerSpecificOrders.Select(cso => new OrderViewDTO()
+            {
                 InvoiceId = cso.InvoiceId,
                 Total_Amt = cso.Total_Amt,
                 Quantity = cso.Quantity,
@@ -182,8 +183,8 @@ namespace DI_MiddleWare_Configuration2.Service
 
             CustomerSpecificOrdersDTO cs = new CustomerSpecificOrdersDTO()
             {
-              customerName = gotCustomer.Name,
-              customer_Orders = orderViewDTOList
+                customerName = gotCustomer.Name,
+                customer_Orders = orderViewDTOList
             };
 
 
@@ -214,13 +215,13 @@ namespace DI_MiddleWare_Configuration2.Service
             // Step 4: Delete the customer-specific orders
             foreach (var order in customerSpecificOrders)
             {
-                 await orderRepository.DeleteOrder_Repo(order.Id);
+                await orderRepository.DeleteOrder_Repo(order.Id);
                 // Replace 'DeleteOrder' with the actual method you have in your repository to delete an order.
             }
 
             return "Orders deleted successfully";
         }
-    
+
 
 
     }
