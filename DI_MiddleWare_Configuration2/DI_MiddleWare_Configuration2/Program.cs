@@ -23,7 +23,7 @@ namespace DI_MiddleWare_Configuration2
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Information()
                   //.WriteTo.Console()
-                  .WriteTo.File("Log/log.txt", rollingInterval : RollingInterval.Minute)
+                  .WriteTo.File("Log/log.txt", rollingInterval: RollingInterval.Minute)
                   .CreateLogger();
 
             //// use this line to ovveride built-in loggers
@@ -75,7 +75,7 @@ namespace DI_MiddleWare_Configuration2
             // IOptions
             builder.Services.Configure<Messages>
                 (builder.Configuration.GetSection("a:b:c:d"));
-            
+
 
 
 
@@ -117,4 +117,14 @@ namespace DI_MiddleWare_Configuration2
             app.Run();
         }
     }
+
+    //Orders : [
+
+    //    ]
+
+    //deliveryCity : Mumbai
+    //Orders : [
+
+    //    ]
 }
+    //deliveryCity : Nagpur

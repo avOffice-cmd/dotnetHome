@@ -14,5 +14,7 @@ namespace DI_MiddleWare_Configuration2.DataAcessLayer
 
         //Task<List<Order>> GetAllOrder();
         Task<List<Order>> GetAllOrders();
+
+     
     }
 }

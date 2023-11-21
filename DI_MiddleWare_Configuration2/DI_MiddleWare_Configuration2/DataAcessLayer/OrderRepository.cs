@@ -74,5 +74,8 @@ namespace DI_MiddleWare_Configuration2.DataAcessLayer
             var orderTable = await context.Orders.ToListAsync();
             return orderTable;
         }
+
+
+
     }
 }

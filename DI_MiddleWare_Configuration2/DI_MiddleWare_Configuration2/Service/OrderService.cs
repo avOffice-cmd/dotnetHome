@@ -1,8 +1,10 @@
 ﻿using DI_MiddleWare_Configuration2.DataAcessLayer;
 using DI_MiddleWare_Configuration2.DTO;
+using DI_MiddleWare_Configuration2.DTO.OrderStatusDTO;
 using DI_MiddleWare_Configuration2.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography;
 
 namespace DI_MiddleWare_Configuration2.Service
 {
@@ -10,12 +12,12 @@ namespace DI_MiddleWare_Configuration2.Service
     {
         private readonly IorderRepository orderRepository;
         private readonly IcustomerRepository customerRepository;
-      
+
         public OrderService(IorderRepository _orderRepository, IcustomerRepository _customerRepository)
         {
             orderRepository = _orderRepository;
             customerRepository = _customerRepository;
-           
+
         }
 
 
@@ -37,7 +39,7 @@ namespace DI_MiddleWare_Configuration2.Service
                 Quantity = addOrderDTO.Quantity,
                 DeliveryCity = addOrderDTO.DeliveryCity,
                 OrderStatus = addOrderDTO.OrderStatus,
-               // DeliveryDate = DateTime.Now.AddDays(5), // Add 5 days to the current date
+                // DeliveryDate = DateTime.Now.AddDays(5), // Add 5 days to the current date
                 CustomerId = (int)addOrderDTO.CustomerId
             };
 
@@ -64,6 +66,7 @@ namespace DI_MiddleWare_Configuration2.Service
             string gotMessage = await orderRepository.DeleteOrder_Repo(_orderId);
             return gotMessage;
         }
+
 
 
         // get all orders
@@ -99,10 +102,85 @@ namespace DI_MiddleWare_Configuration2.Service
 
             return orderResult;
         }
+        /// <inheritdoc/>
         #endregion
+        //[
+        //Nagpur : [Ord1, Ord2],
+        //Mihan : [Ord3, Ord5]
+        //]
+        // get all orders in specific city
+        public async Task<List<FetchAllOrdersByCityDTO>> GetallOrdersBySpecificCity()
+        {
+            var getAllOrders = await orderRepository.GetAllOrders();
+
+
+            var Orders = getAllOrders.GroupBy(or => or.DeliveryCity)
+                        .Select(ordGroup => new FetchAllOrdersByCityDTO
+                        {
+                            DeliveryCity = ordGroup.Key,
+                            Orders = ordGroup.Select(ord => new FetchOrdersDTO
+                            {
+                                Id = ord.Id,
+                                CustomerId = ord.CustomerId,
+                                OrderStatus = ord.OrderStatus,
+                                Quantity = ord.Quantity,
+                                Total_Amt = ord.Total_Amt
+                            }).ToList(),
+                        }).ToList();
+
+            return Orders;
+        }
+
+
+        // get all orders in specific order status
+
+        public async Task<List<FetchAllOrdersByOredrStatusDTO>> GetallOrdersBySpecificStatus()
+        {
+            var getAllOredrs = await orderRepository.GetAllOrders();
+
+            var gotOrders = getAllOredrs.GroupBy(or => or.OrderStatus)
+                        .Select(orGroup => new FetchAllOrdersByOredrStatusDTO
+                        {
+                            OrderStatus = orGroup.Key,
+                            Orders = orGroup.Select(ord => new FetchOrdersDTO
+                            {
+                                Id = ord.Id,
+                                CustomerId = ord.CustomerId,
+                                OrderStatus = ord.OrderStatus,
+                                Quantity = ord.Quantity,
+                                Total_Amt = ord.Total_Amt
+                            }).ToList(),
+
+                        }).ToList();
+
+            return gotOrders;
+        }
 
 
 
 
+        public async Task<List<GetAllInvoiceIdBySpecificCityDTO>> GetallInvoiceIdBySpecificCity()
+        {
+            var getAllOrders = await orderRepository.GetAllOrders();
+
+            var invoiceIdByCity = getAllOrders.GroupBy(or => or.DeliveryCity)
+                         .Select(group => new GetAllInvoiceIdBySpecificCityDTO
+                         {
+                             City = group.Key,
+                             InvoiceIDsss = string.Join(",", group.Select(order => order.InvoiceId))
+                         }).ToList();
+       
+
+
+
+            return invoiceIdByCity;
+
+        }
     }
 }
+
+
+
+
+
+   

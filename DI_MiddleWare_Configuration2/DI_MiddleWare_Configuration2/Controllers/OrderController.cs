@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Extensions;
+using System.Linq;
 using System.Net;
 
 namespace DI_MiddleWare_Configuration2.Controllers
@@ -39,6 +40,9 @@ namespace DI_MiddleWare_Configuration2.Controllers
             return Ok("Order has been added");
         }
 
+
+
+
         // UPDATE ORDERS
 
         /// <summary>
@@ -71,6 +75,8 @@ namespace DI_MiddleWare_Configuration2.Controllers
         }
 
 
+
+
         // DELETE ORDERS
 
         /// <summary>
@@ -92,6 +98,9 @@ namespace DI_MiddleWare_Configuration2.Controllers
             return Ok(gotResponse);
             //return StatusCode(200, gotResponse);
         }
+
+
+
 
 
         // GET ALL ORDERS
@@ -127,8 +136,59 @@ namespace DI_MiddleWare_Configuration2.Controllers
 
 
 
-     
-       
+
+        // Get All Orders Specific City
+
+        /// <summary>
+        /// It is used to get all orders
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetAllOrdersSpecificCity")]
+        //[ProducesResponseType(200, Type = typeof(List<Order>))]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult> GetAllOrdersSpecificCity()
+        {
+
+                var getOrders = await orderService.GetallOrdersBySpecificCity();
+                return Ok(getOrders);
+         
+        }
+
+
+
+        // Get All Orders Specific Status
+
+        /// <summary>
+        /// It is used to get all orders
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetAllOrdersSpecificStatus")]
+        //[ProducesResponseType(200, Type = typeof(List<Order>))]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult> GetAllOrdersSpecificStatus()
+        {
+
+            var getOrders = await orderService.GetallOrdersBySpecificStatus();
+            return Ok(getOrders);
+        }
+
+        //DeliveryCity : "mumbai",
+        //InvoiceId :
+        //        "Ord_dolly_06112023000153,Ord_rohit_06112023000208,Ord_rohit_06112023000358"
+
+        [HttpGet]
+        [Route("GetAllInvoiceOrderByCity")]
+        //[ProducesResponseType(200, Type = typeof(List<Order>))]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult> GetAllInvoiceOrderByCity()
+        {
+
+            var getOrders = await orderService.GetallInvoiceIdBySpecificCity();
+            return Ok(getOrders);
+        }
+
 
     }
 }

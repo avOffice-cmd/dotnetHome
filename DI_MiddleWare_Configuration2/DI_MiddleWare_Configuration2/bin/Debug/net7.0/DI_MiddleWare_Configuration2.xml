@@ -80,6 +80,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.OrderController.GetAllOrdersSpecificCity">
+            <summary>
+            It is used to get all orders
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Controllers.OrderController.GetAllOrdersSpecificStatus">
+            <summary>
+            It is used to get all orders
+            </summary>
+            <returns></returns>
+        </member>
         <member name="F:DI_MiddleWare_Configuration2.Helper.OrderStatus.Initiated">
             <summary>
             Initiated
@@ -106,6 +118,9 @@
         </member>
         <member name="M:DI_MiddleWare_Configuration2.Migrations.createDtatabase.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="M:DI_MiddleWare_Configuration2.Service.OrderService.GetallOrdersBySpecificCity">
+            <inheritdoc/>
         </member>
     </members>
 </doc>

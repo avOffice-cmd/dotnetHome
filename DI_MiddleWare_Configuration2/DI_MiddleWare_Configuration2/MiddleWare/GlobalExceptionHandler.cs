@@ -9,7 +9,7 @@
             _next = next;
         }
 
-        public Task InvokeAsync(HttpContext context)
+        /*public Task InvokeAsync(HttpContext context)
         {
             try
             {
@@ -17,9 +17,9 @@
             }
             catch (Exception ex)
             {
-               
+               return
             }
-        }
+        }*/
 
 
     }
